@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #scorebox{
+            width: 100% ;
+            height: 50px;
+        }
+
+        
+        #header{
+            text-align: center;
+            background-color: pink;
+            font-size: 30px;
+           } 
+        #quiz-box{
+            background-color: pink;
+            width: 300px;
+            align-self: center;
+        }
+    </style>
+    <script>
+        // const cars = ["Saab", "Volvo", "BMW"];
+        // alert(cars[0]);
+
+        // function myFunc(){
+
+        // }
+        let answers = [];
+        let q1 = document.getElementsByName('q1');
+        let q2 = document.getElementsByName('q2');
+        let q3 = document.getElementsByName('q3');
+        let q4 = document.getElementsByName('q4');
+        let q5 = document.getElementsByName('q5');
+        let q1Correct = 0;
+        let q2Correct = 0;
+        let q3Correct = 0;
+        let q4Correct = 0;
+        let q5Correct = 0;
+             
+            
+
+        myFunc = function(){
+            //loop through q1radio buttons and add q1 answer to array
+            for (var i = 0, length = q1.length; i < length; i++) {
+                if (q1[i].checked) {
+                   
+                    console.log(q1[i].value);
+                    answers[0] = q1[i].value;
+                    
+                    break;
+                }
+            }
+             
+            //loop through q2radio buttons and add q2 answer to array
+            for (var i = 0, length = q2.length; i < length; i++) {
+                if (q2[i].checked) {
+                   
+                    console.log(q2[i].value);
+                    answers[1] = q2[i].value;
+                    
+                    break;
+                }
+            }
+
+            //loop through q3radio buttons and add q3 answer to array
+            for (var i = 0, length = q3.length; i < length; i++) {
+                if (q3[i].checked) {
+                   
+                    console.log(q3[i].value);
+                    answers[2] = q3[i].value;
+                    
+                    break;
+                }
+            }
+
+             //loop through q4radio buttons and add q3 answer to array
+             for (var i = 0, length = q4.length; i < length; i++) {
+                if (q4[i].checked) {
+                   
+                    console.log(q4[i].value);
+                    answers[3] = q4[i].value;
+                    
+                    break;
+                }
+            }
+
+             //loop through q5radio buttons and add q5 answer to array
+             for (var i = 0, length = q5.length; i < length; i++) {
+                if (q5[i].checked) {
+                   
+                    console.log(q5[i].value);
+                    answers[4] = q5[i].value;
+                    
+                    break;
+                }
+            }
+            console.log(answers);
+
+            if(answers[0] == ['yes']){
+                q1Correct = 20;
+            }
+            if(answers[1] == ['no']){
+                q2Correct = 20;
+            }
+            if(answers[2] == ['no']){
+                q3Correct = 20;
+            }
+            if(answers[3] == ['yes']){
+                q3Correct = 20;
+            }
+            if(answers[4] == ['no']){
+                q1Correct = 20;
+            }
+            //adding the score together
+            let totalScore = q1Correct + q2Correct + q3Correct + q4Correct + q5Correct;
+
+            document.getElementById("scorebox").innerHTML = "your score is "+totalScore;
+            
+            console.log(totalScore);
+        }
+
+        
+        
+    </script>
+</head>
+<body>
+   <div id="header">quiz game</div>
+    <div id="scorebox"></div>
+    <!-- <form class="myform"> -->
+        <div id="quiz-box">
+        <h4>is grass green?</h4>
+        <label for="q1Yes">yes</label>
+        <input type="radio" id="q1Yes" name="q1" value="yes">
+        <label for="q1No">no</label>
+        <input type="radio" id="q1No" name="q1" value="no">
+        <br>
+        <h4>is the sun cold?</h4>
+        <label for="q2Yes">yes</label>
+        <input type="radio" id="q2Yes" name="q2" value="yes">
+        <label for="q2No">no</label>
+        <input type="radio" id="q2No" name="q2" value="no">
+        <br>
+        <h4>Is water wet?</h4>
+        <label for="q3Yes">yes</label>
+        <input type="radio" id="q3Yes" name="q3" value="yes">
+        <label for="q3No">no</label>
+        <input type="radio" id="q3No" name="q3" value="no">
+        <br>
+        <h4>is the sky blue</h4>
+        <label for="q4Yes">yes</label>
+        <input type="radio" id="q4Yes" name="q4" value="yes">
+        <label for="q4No">no</label>
+        <input type="radio" id="q4No" name="q4" value="no">
+        <br>
+        <h4>are bricks soft?</h4>
+        <label for="q5Yes">yes</label>
+        <input type="radio" id="q5Yes" name="q5" value="yes">
+        <label for="q5No">no</label>
+        <input type="radio" id="q5No" name="q5" value="no">
+        <br>
+        <button id="submit" onclick="myFunc()">submit</button>
+    </div>
+    <!-- </form> -->
+</body>
+</html>
